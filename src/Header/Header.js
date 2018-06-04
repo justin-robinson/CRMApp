@@ -10,7 +10,6 @@ class Header extends Component {
           <img src={logo} className="Header-logo" alt="logo" />
         </a>
         <h1 className="Header-title">This the site's header</h1>
-        <a href="/post/12345-test">Latest Post</a>
       </header>
     );
   }
