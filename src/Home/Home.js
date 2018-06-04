@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import config from 'react-global-configuration'
-import PostUrl from '../Post/Url';
+import PostHref from '../Post/Href';
 
 class Home extends Component {
 
@@ -23,7 +23,7 @@ class Home extends Component {
 
   render() {
     const listOfPosts = this.state.posts.map(post =>
-      <li><PostUrl post={post}/></li>
+      <li><PostHref post={post}/></li>
     );
     return (
       <ul>

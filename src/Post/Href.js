@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Url extends Component {
+class Href extends Component {
 
   constructor(props) {
     super(props);
@@ -24,4 +24,4 @@ class Url extends Component {
   }
 }
 
-export default Url;
+export default Href;
