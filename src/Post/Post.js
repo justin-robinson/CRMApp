@@ -7,25 +7,27 @@ class Post extends Component {
     super(props);
     this.state = {
       post: {
-        id: this.props.match.params.id || null
+        postId: this.props.postId || this.props.match.params.postId || null
       }
     }
   }
 
   componentDidMount() {
-    if (this.state.post.id == null) return;
-    fetch(`${config.get('apiUrl')}posts/${this.state.post.id}`)
+    if (this.state.post.postId == null) return;
+    fetch(`${config.get('apiUrl')}posts/${this.state.post.postId}`)
       .then(results => {
         return results.json();
       })
       .then(post => {
         this.setState({post: post});
+        console.log('post' + post.postId);
       });
   }
 
   render() {
     return (
       <div>
+        <pre>{this.state.post.title}</pre>
         <pre>{this.state.post.content}</pre>
         <pre>Last Modified: {this.state.post.updateTime}</pre>
       </div>

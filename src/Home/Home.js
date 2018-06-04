@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import config from 'react-global-configuration'
+import PostUrl from '../Post/Url';
 
 class Home extends Component {
 
@@ -15,14 +16,14 @@ class Home extends Component {
       .then(results => {
         return results.json();
       })
-      .then(post => {
-        this.setState({posts: post});
+      .then(posts => {
+        this.setState({posts: posts});
       });
   }
 
   render() {
     const listOfPosts = this.state.posts.map(post =>
-      <li><a href={`post/${post.postId}`}>{post.postId}</a></li>
+      <li><PostUrl post={post}/></li>
     );
     return (
       <ul>
