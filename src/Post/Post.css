@@ -1,0 +1,10 @@
+.post {
+    width: 75%;
+    margin: auto;
+}
+
+.post .content-container {
+    width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}

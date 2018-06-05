@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
 import config from 'react-global-configuration';
+import './Post.css';
+import Author from '../Author/Author';
 
 class Post extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      post: {
-        postId: this.props.postId || this.props.match.params.postId || null
-      }
-    }
+  state = {
+    post: {}
   }
 
-  componentDidMount() {
-    if (this.state.post.postId == null) return;
-    fetch(`${config.get('apiUrl')}posts/${this.state.post.postId}`)
-      .then(results => {
-        return results.json();
-      })
-      .then(post => {
-        this.setState({post: post});
-        console.log('post' + post.postId);
-      });
+  async fetchData() {
+    let postId = this.props.postId || (this.props.match && this.props.match.params.postId) || null;
+    if (postId === null || this.state.post.postId === postId) {
+      return null;
+    }
+    let results = await fetch(`${config.get('apiUrl')}posts/${postId}`);
+    let post = await results.json();
+
+    this.setState({
+      post: post
+    });
+  }
+
+  async componentDidMount() {
+    await this.fetchData();
+  }
+
+  async componentDidUpdate () {
+    await this.fetchData();
   }
 
   render() {
     return (
-      <div>
-        <pre>{this.state.post.title}</pre>
-        <pre>{this.state.post.content}</pre>
+      <div class="post">
+        <Author authorId={this.state.post.authorId} />
+        <h2>{this.state.post.title}</h2>
+        <div class="content-container">
+          <div class="content">{this.state.post.content}</div>
+        </div>
         <pre>Last Modified: {this.state.post.updateTime}</pre>
       </div>
     );
