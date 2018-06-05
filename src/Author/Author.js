@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import config from 'react-global-configuration';
-import './Author.css'
+import './Author.scss'
 
 class Author extends Component {
 

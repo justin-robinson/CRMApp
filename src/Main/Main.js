@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Home from '../Home/Home';
 import Post from '../Post/Post';
-import './Main.css';
+import './Main.scss';
 
 class Main extends Component {
   render() {

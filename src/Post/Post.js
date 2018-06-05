@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import config from 'react-global-configuration';
-import './Post.css';
+import './Post.scss';
 import Author from '../Author/Author';
 import ReactMarkdown from 'react-markdown';
 
