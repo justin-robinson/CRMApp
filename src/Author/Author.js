@@ -35,8 +35,8 @@ class Author extends Component {
     return (
       <div class="author-container">
         <img class="avatar" src="/avatar-default.jpg" alt="avatar"/>
-        <span class="username">{this.state.author.username}</span>
         <span>{this.state.author.firstName} {this.state.author.lastName}</span>
+        <span class="username">{this.state.author.username}</span>
       </div>
     );
   }
