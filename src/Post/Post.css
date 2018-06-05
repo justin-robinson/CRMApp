@@ -1,5 +1,6 @@
 .post {
     width: 75%;
+    max-width: 1000px;
     margin: auto;
 }
 

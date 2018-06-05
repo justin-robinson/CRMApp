@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from 'react-global-configuration';
 import './Post.css';
 import Author from '../Author/Author';
+import ReactMarkdown from 'react-markdown';
 
 class Post extends Component {
 
@@ -36,7 +37,9 @@ class Post extends Component {
         <Author authorId={this.state.post.authorId} />
         <h2>{this.state.post.title}</h2>
         <div class="content-container">
-          <div class="content">{this.state.post.content}</div>
+          <div class="content">
+            <ReactMarkdown source={this.state.post.content}/>
+          </div>
         </div>
         <pre>Last Modified: {this.state.post.updateTime}</pre>
       </div>
