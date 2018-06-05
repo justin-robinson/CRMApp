@@ -16,8 +16,6 @@ class Author extends Component {
     let results = await fetch(`${config.get('apiUrl')}authors/${authorId}`);
     let author = await results.json();
 
-    console.log(author);
-
     this.setState({
       author: author
     });
