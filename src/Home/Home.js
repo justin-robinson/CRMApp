@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import config from 'react-global-configuration'
-import PostHref from '../Post/Href';
+import PostPreview from '../Post/Preview';
+import './Home.scss';
 
 class Home extends Component {
 
@@ -23,10 +24,12 @@ class Home extends Component {
 
   render() {
     const listOfPosts = this.state.posts.map(post =>
-      <li><PostHref post={post}/></li>
+      <li class="post">
+        <PostPreview post={post}/>
+      </li>
     );
     return (
-      <ul>
+      <ul class="posts">
         {listOfPosts}
       </ul>
     );

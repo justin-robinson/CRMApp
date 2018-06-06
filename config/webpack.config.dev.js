@@ -36,7 +36,7 @@ module.exports = {
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Include an alternative client for WebpackDevServer. A client's job is to
-    // connect to WebpackDevServer by a socket and get notified about changes.
+    // connect to WebpackDevServer by a socket and getUrl notified about changes.
     // When you save a file, the client will either apply hot updates (in case
     // of CSS changes), or refresh the page (in case of JS changes). When you
     // make a syntax error, this client will display a syntax error overlay.
@@ -220,15 +220,15 @@ module.exports = {
               },
             ],
           },
-          // "file" loader makes sure those assets get served by WebpackDevServer.
-          // When you `import` an asset, you get its (virtual) filename.
-          // In production, they would get copied to the `build` folder.
+          // "file" loader makes sure those assets getUrl served by WebpackDevServer.
+          // When you `import` an asset, you getUrl its (virtual) filename.
+          // In production, they would getUrl copied to the `build` folder.
           // This loader doesn't use a "test" so it will catch all modules
           // that fall through the other loaders.
           {
             // Exclude `js` files to keep "css" loader working as it injects
             // its runtime that would otherwise processed through "file" loader.
-            // Also exclude `html` and `json` extensions so they get processed
+            // Also exclude `html` and `json` extensions so they getUrl processed
             // by webpacks internal loaders.
             exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             loader: require.resolve('file-loader'),

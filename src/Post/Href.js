@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
+class Href {
 
-class Href extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      post: this.props.post
-    };
+  static getTitle(post) {
+    return post.title || 'No Title';
   }
 
-  render() {
-    const title = this.state.post.title || 'No Title';
-    const url = [title
+  static getUrl(post) {
+    const title = this.getTitle(post);
+    return [title
       .replace(/[^a-zA-Z]/g, ' ')
       .replace(/\s+/g, '-')
       .replace(/-$/, '')
-      , this.state.post.postId]
+      , post.postId]
       .map(value => encodeURIComponent(value))
       .join('/');
-    return (
-      <a href={url}>{title}</a>
-    );
   }
 }
 

@@ -1,8 +1,8 @@
+@import "../variables";
+
 .author-container {
-  width: 300px;
+  width: $author-container-width;
   overflow: auto;
-  border: 1px solid;
-  border-radius: 10px;
 
   .avatar {
     float: left;

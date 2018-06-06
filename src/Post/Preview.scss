@@ -1,0 +1,56 @@
+@import "../variables";
+
+@media screen and (max-width: 600px) {
+  .post-preview {
+    padding: 0.5em;
+    display: flex;
+    .link {
+      text-decoration: none;
+      color: black;
+    }
+    .left {
+      position: absolute;
+      margin-bottom: 0.5em;
+      .author-container {
+        display: none;
+      }
+    }
+    .right {
+      margin-top: 1em;
+      overflow: hidden;
+      .content {
+      }
+    }
+  }
+}
+
+
+.post-preview {
+  align-items: stretch;
+  vertical-align: middle;
+  -ms-box-orient: vertical;
+  display: -ms-flex;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+  .left {
+    float: left;
+    width: $author-container-width;
+    height: 100%;
+    .post-title {
+      margin: 0;
+    }
+  }
+  .right {
+    overflow: hidden;
+  }
+}
