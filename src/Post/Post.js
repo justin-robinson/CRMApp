@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import config from 'react-global-configuration';
 import './Post.scss';
 import Author from '../Author/Author';
-import ReactMarkdown from 'react-markdown';
+import Markdown from './Markdown';
 
 class Post extends Component {
 
@@ -38,7 +38,7 @@ class Post extends Component {
         <h2>{this.state.post.title}</h2>
         <div class="content-container">
           <div class="content">
-            <ReactMarkdown source={this.state.post.content}/>
+            <Markdown content={this.state.post.content}/>
           </div>
         </div>
         <pre>Last Modified: {this.state.post.updateTime}</pre>

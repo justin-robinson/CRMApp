@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PostHref from '../Post/Href';
 import Author from '../Author/Author';
 import './Preview.scss';
-import ReactMarkdown from 'react-markdown';
+import Markdown from './Markdown';
 
 class Preview extends Component {
   constructor (props) {
@@ -24,7 +24,7 @@ class Preview extends Component {
           </div>
           <div class="right">
             <div className="content">
-              <ReactMarkdown source={this.state.post.content}/>
+              <Markdown content={this.state.post.content}/>
             </div>
           </div>
         </a>
