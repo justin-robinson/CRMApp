@@ -24,12 +24,12 @@ class Home extends Component {
 
   render() {
     const listOfPosts = this.state.posts.map(post =>
-      <li class="post">
+      <li key={post.postId} className="post">
         <PostPreview post={post}/>
       </li>
     );
     return (
-      <ul class="posts">
+      <ul className="posts">
         {listOfPosts}
       </ul>
     );

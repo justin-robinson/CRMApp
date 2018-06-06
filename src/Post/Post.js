@@ -34,12 +34,12 @@ class Post extends Component {
 
   render() {
     return (
-      <div class="post">
+      <div className="post">
         <ScrollPositionIndicator />
         <Author authorId={this.state.post.authorId} />
         <h2>{this.state.post.title}</h2>
-        <div class="content-container">
-          <div class="content">
+        <div className="content-container">
+          <div className="content">
             <Markdown content={this.state.post.content}/>
           </div>
         </div>

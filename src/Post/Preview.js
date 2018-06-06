@@ -17,14 +17,14 @@ class Preview extends Component {
     const title = PostHref.getTitle(this.state.post);
     return (
       <a className="link" href={url}>
-        <div class="post-preview">
-          <div class="left">
+        <div className="post-preview">
+          <div className="left">
             <h2 className="post-title">{title}</h2>
             <Author authorId={this.state.post.authorId}/>
           </div>
-          <div class="right">
+          <div className="right">
             <div className="content">
-              <Markdown content={this.state.post.content}/>
+              <Markdown content={this.state.post.content} disallowedTypes={['link']}/>
             </div>
           </div>
         </div>

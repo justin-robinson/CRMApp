@@ -6,7 +6,7 @@ import './Markdown.scss';
 class Markdown extends Component {
 
   state = {
-    content: {}
+    content: ''
   };
 
   updateState() {
@@ -28,7 +28,11 @@ class Markdown extends Component {
 
   render() {
     return (
-      <ReactMarkdown className="post-markdown" source={this.state.content}/>
+      <ReactMarkdown
+        className="post-markdown"
+        disallowedTypes={this.props.disallowedTypes}
+        source={this.state.content}
+      />
     );
   }
 }

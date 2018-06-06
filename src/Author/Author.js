@@ -13,15 +13,20 @@ class Author extends Component {
     if (authorId === null || this.state.author.authorId === authorId) {
       return null;
     }
-    let results = await fetch(`${config.get('apiUrl')}authors/${authorId}`);
-    let author = await results.json();
+    try {
+      let results = await fetch(`${config.get('apiUrl')}authors/${authorId}`);
+      let author = await results.json();
 
-    this.setState({
-      author: author
-    });
+      this.setState({
+        author: author
+      });
+    } catch (e) {
+      console.log(`error fetching author ${authorId}`);
+    }
+
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     await this.fetchData();
   }
 
@@ -31,10 +36,10 @@ class Author extends Component {
 
   render () {
     return (
-      <div class="author-container">
-        <img class="avatar" src="/avatar-default.jpg" alt="avatar"/>
+      <div className="author-container">
+        <img className="avatar" src="/avatar-default.jpg" alt="avatar"/>
         <span>{this.state.author.firstName} {this.state.author.lastName}</span>
-        <span class="username">{this.state.author.username}</span>
+        <span className="username">{this.state.author.username}</span>
       </div>
     );
   }

@@ -32,8 +32,8 @@ class ScrollPositionIndicator extends Component {
     }
     return (
       <div>
-        <div class="scroll-position-indicator">
-          <div class="scroll-position-indicator-inner" style={style}>
+        <div className="scroll-position-indicator">
+          <div className="scroll-position-indicator-inner" style={style}>
             &nbsp;
           </div>
         </div>
