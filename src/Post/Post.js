@@ -3,6 +3,7 @@ import config from 'react-global-configuration';
 import './Post.scss';
 import Author from '../Author/Author';
 import Markdown from './Markdown';
+import ScrollPositionIndicator from '../ScrollPositionIndicator/ScrollPositionIndicator';
 
 class Post extends Component {
 
@@ -34,6 +35,7 @@ class Post extends Component {
   render() {
     return (
       <div class="post">
+        <ScrollPositionIndicator />
         <Author authorId={this.state.post.authorId} />
         <h2>{this.state.post.title}</h2>
         <div class="content-container">

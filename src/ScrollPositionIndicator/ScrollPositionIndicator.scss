@@ -1,0 +1,12 @@
+.scroll-position-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  .scroll-position-indicator-inner {
+    float: left;
+    height: 100%;
+    background-color: red;
+  }
+}
