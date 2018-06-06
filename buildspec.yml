@@ -1,0 +1,17 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - cd $CODEBUILD_SRC_DIR; npm install
+  build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR; npm run build
+  post_build:
+    commands:
+      - aws s3 cp build s3://lucunas.io/ --recursive
+      - cd $CODEBUILD_SRC_DIR/build; zip -r ../package.zip *
+artifacts:
+  files:
+    - package.zip
+  discard-paths: yes
