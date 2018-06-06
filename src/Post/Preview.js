@@ -16,8 +16,8 @@ class Preview extends Component {
     const url = PostHref.getUrl(this.state.post);
     const title = PostHref.getTitle(this.state.post);
     return (
-      <div class="post-preview">
-        <a className="link" href={url}>
+      <a className="link" href={url}>
+        <div class="post-preview">
           <div class="left">
             <h2 className="post-title">{title}</h2>
             <Author authorId={this.state.post.authorId}/>
@@ -27,8 +27,8 @@ class Preview extends Component {
               <Markdown content={this.state.post.content}/>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     );
   }
 }
