@@ -43,14 +43,14 @@
     overflow: hidden;
     .left {
       float: left;
-      width: $author-container-width;
+      width: $author-preview-container-width;
       height: 100%;
-      .post-title {
-        margin: 0;
-      }
     }
     .right {
       overflow: hidden;
+      .post-title {
+        margin: 0;
+      }
     }
   }
 }

@@ -1,15 +1,38 @@
 @import "../variables";
 
 .author-container {
-  width: $author-container-width;
-  overflow: auto;
+  height: $author-container-height;
 
   .avatar {
-    float: left;
-    width: 100px;
-    height: 100px;
+    height: $author-container-height;
+    width: $author-container-height;
+    border-radius: 50%;
   }
-  .username {
-    display: block;
+  
+  #author-info {
+    display: inline-block;
+    span {
+      display: block;
+    }
   }
+}
+
+.author-preview-container {
+  width: $author-preview-container-width;
+  overflow: auto;
+
+  .link {
+    text-decoration: none;
+
+    .avatar {
+      float: left;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .username {
+      display: block;
+    }
+  }
+
 }
