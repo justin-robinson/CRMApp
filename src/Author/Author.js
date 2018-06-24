@@ -3,6 +3,7 @@ import config from 'react-global-configuration';
 import './Author.scss'
 import Href from './Href';
 import PostPreview from '../Post/Preview';
+import ApiFetcher from '../ApiFetcher';
 
 class Author extends Component {
 
@@ -37,8 +38,7 @@ class Author extends Component {
       return null;
     }
     try {
-      let results = await fetch(`${config.get('apiUrl')}authors/${authorId}`);
-      let author = await results.json();
+      let author = await ApiFetcher.fetch(`${config.get('apiUrl')}authors/${authorId}`);
 
       this.setState({
         author: author
@@ -57,7 +57,7 @@ class Author extends Component {
       this.setState(state => {
         state.posts.areFetching = true;
       });
-      let results = await fetch(`${config.get('apiUrl')}authors/${authorId}/posts`);
+      let results = await ApiFetcher.fetch(`${config.get('apiUrl')}authors/${authorId}/posts`);
       let posts = await results.json();
 
       let postsState = {...this.state.posts};

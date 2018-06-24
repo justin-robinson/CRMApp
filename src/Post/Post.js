@@ -3,6 +3,7 @@ import config from 'react-global-configuration';
 import './Post.scss';
 import Author from '../Author/Author';
 import Markdown from './Markdown';
+import ApiFetcher from '../ApiFetcher';
 import ScrollPositionIndicator from '../ScrollPositionIndicator/ScrollPositionIndicator';
 
 class Post extends Component {
@@ -16,7 +17,7 @@ class Post extends Component {
     if (postId === null || this.state.post.postId === postId) {
       return null;
     }
-    let results = await fetch(`${config.get('apiUrl')}posts/${postId}`);
+    let results = await ApiFetcher.fetch(`${config.get('apiUrl')}posts/${postId}`);
     let post = await results.json();
 
     this.setState({

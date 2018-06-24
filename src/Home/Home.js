@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import config from 'react-global-configuration'
 import PostPreview from '../Post/Preview';
 import './Home.scss';
+import ApiFetcher from '../ApiFetcher'
 
 class Home extends Component {
 
@@ -13,7 +14,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch(`${config.get('apiUrl')}posts/`)
+    ApiFetcher.fetch(`${config.get('apiUrl')}posts/`)
       .then(results => {
         return results.json();
       })
