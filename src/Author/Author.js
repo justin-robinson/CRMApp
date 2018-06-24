@@ -4,6 +4,10 @@ import './Author.scss'
 
 class Author extends Component {
 
+  props = {
+    isPreview: false
+  }
+
   state = {
     author: {}
   }
@@ -35,6 +39,12 @@ class Author extends Component {
   }
 
   render () {
+    return this.props.isPreview
+      ? this.renderPreview()
+      :  this.renderFull();
+  }
+
+  renderPreview () {
     return (
       <div className="author-container">
         <img className="avatar" src="/avatar-default.jpg" alt="avatar"/>
@@ -42,6 +52,10 @@ class Author extends Component {
         <span className="username">{this.state.author.username}</span>
       </div>
     );
+  }
+
+  renderFull () {
+    return (<div></div>);
   }
 }
 

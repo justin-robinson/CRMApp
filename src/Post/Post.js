@@ -36,7 +36,7 @@ class Post extends Component {
     return (
       <div className="post">
         <ScrollPositionIndicator />
-        <Author authorId={this.state.post.authorId} />
+        <Author isPreview={true} authorId={this.state.post.authorId} />
         <h2>{this.state.post.title}</h2>
         <div className="content-container">
           <div className="content">
