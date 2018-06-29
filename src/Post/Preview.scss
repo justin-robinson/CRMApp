@@ -43,7 +43,7 @@
     overflow: hidden;
     .left {
       float: left;
-      width: $author-preview-container-width;
+      max-width: $author-preview-container-width;
       height: 100%;
     }
     .right {

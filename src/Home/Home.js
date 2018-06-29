@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import config from 'react-global-configuration'
 import PostPreview from '../Post/Preview';
 import './Home.scss';
-import ApiFetcher from '../ApiFetcher'
+import ApiFetcher from '../Utils/ApiFetcher'
 
 class Home extends Component {
 
@@ -13,14 +13,16 @@ class Home extends Component {
     }
   }
 
-  componentDidMount() {
-    ApiFetcher.fetch(`${config.get('apiUrl')}posts/`)
-      .then(results => {
-        return results.json();
-      })
-      .then(posts => {
-        this.setState({posts: posts});
-      });
+  async componentDidMount() {
+    let posts = await ApiFetcher.fetch(
+      `${config.get('apiUrl')}posts/`,
+      null,
+      {
+        useCache: true,
+        sessionOnlyCache: true
+      }
+    );
+    this.setState({posts: posts});
   }
 
   render() {

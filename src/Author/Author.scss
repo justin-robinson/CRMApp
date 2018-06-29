@@ -21,18 +21,14 @@
   width: $author-preview-container-width;
   overflow: auto;
 
-  .link {
-    text-decoration: none;
-
-    .avatar {
-      float: left;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-    }
-    .username {
-      display: block;
-    }
+  .avatar {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .username {
+    display: block;
   }
 
 }
