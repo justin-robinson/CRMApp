@@ -2,8 +2,6 @@ import Session from './Session';
 
 class CacheWrapper {
 
-  static CACHE_VERSION = Session.getSessionKey();
-
   static async has(cacheName, url) {
     return (await CacheWrapper.getCache(cacheName)).match(url);
   }
@@ -21,7 +19,8 @@ class CacheWrapper {
   }
 
   static async getCache(cacheName) {
-    return await caches.open(`${cacheName}${CacheWrapper.CACHE_VERSION}`);
+    const cacheVersion = Session.getSessionKey();
+    return await caches.open(`${cacheName}${cacheVersion}`);
   }
 
 }

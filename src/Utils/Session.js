@@ -7,16 +7,21 @@ class Session {
   static ONE_HOUR_SESSION_TIMEOUT_IN_MILLISECONDS = 3600000;
 
   static createSession () {
-    Storage.set(Session.SESSION, (new Date()).getTime(), Session.USE_SESSION_STORAGE);
+    let createTime = (new Date()).getTime();
+    Storage.set(Session.SESSION, createTime, Session.USE_SESSION_STORAGE);
+    return createTime;
   }
 
   static getSessionKey () {
-    return Storage.get(Session.SESSION, Session.USE_SESSION_STORAGE);
+    let sessionKey = Storage.get(Session.SESSION, Session.USE_SESSION_STORAGE);
+    if(!Session.isValidSessionKey(sessionKey)) {
+      sessionKey = Session.createSession();
+    }
+    return sessionKey;
   }
 
-  static hasValidSession() {
-    let sessionCreateTime = Session.getSessionKey();
-    return ((new Date()).getTime() - sessionCreateTime) <= Session.ONE_HOUR_SESSION_TIMEOUT_IN_MILLISECONDS;
+  static isValidSessionKey(sessionKey) {
+    return ((new Date()).getTime() - sessionKey) <= Session.ONE_HOUR_SESSION_TIMEOUT_IN_MILLISECONDS;
   }
 }
 
