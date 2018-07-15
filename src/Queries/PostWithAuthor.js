@@ -6,7 +6,9 @@ export default gql`
       postId
       title
       content
+      authorId
       author {
+        authorId
         firstName
         lastName
         username
