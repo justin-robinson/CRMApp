@@ -26,7 +26,7 @@ class Preview extends Component {
         <div className="post-preview">
           <div className="left">
             <div className={authorClass}>
-              <Author isPreview="true" author={this.state.author} authorId={this.state.post.authorId}/>
+              <Author isPreview="true" author={this.state.post.author} authorId={this.state.post.authorId}/>
             </div>
           </div>
           <div className="right">

@@ -1,41 +1,31 @@
 import React, {Component} from 'react';
-import config from 'react-global-configuration'
 import PostPreview from '../Post/Preview';
 import './Home.scss';
-import ApiFetcher from '../Utils/ApiFetcher'
+import { Query } from 'react-apollo';
+import listPostsWithAuthor from '../Queries/ListPostsWithAuthors';
 
 class Home extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    }
-  }
-
-  async componentDidMount() {
-    let posts = await ApiFetcher.fetch(
-      `${config.get('apiUrl')}posts/`,
-      null,
-      {
-        useCache: true,
-        sessionOnlyCache: true
-      }
-    );
-    this.setState({posts: posts});
-  }
-
   render() {
-    const listOfPosts = this.state.posts.map(post =>
-      <li key={post.postId} className="post">
-        <PostPreview post={post}/>
-      </li>
-    );
-    return (
-      <ul className="posts">
-        {listOfPosts}
-      </ul>
-    );
+
+    return <Query query={listPostsWithAuthor}>
+      {({ loading, error, data }) => {
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error :(</p>;
+
+        const listOfPosts = data.listPost.items.map(
+          (post) => (
+              <li key={post.postId} className="post">
+                <PostPreview post={post}/>
+              </li>
+        ));
+        return (
+          <ul className="posts">
+            {listOfPosts}
+          </ul>
+        );
+      }}
+    </Query>
   }
 }
 
