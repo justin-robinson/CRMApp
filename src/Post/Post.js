@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Post.scss';
-import Author from '../Author/Author';
+import AuthorPreview from '../Author/Preview';
 import Markdown from './Markdown';
 import ScrollPositionIndicator from '../ScrollPositionIndicator/ScrollPositionIndicator';
 import {Query} from 'react-apollo';
@@ -19,7 +19,7 @@ class Post extends Component {
 
         return (<div className="post">
           <ScrollPositionIndicator/>
-          <Author isPreview={true} author={data.getPost.author} authorId={data.getPost.authorId}/>
+          <AuthorPreview author={data.getPost.author} />
           <h2>{data.getPost.title}</h2>
           <div className="content-container">
             <div className="content">

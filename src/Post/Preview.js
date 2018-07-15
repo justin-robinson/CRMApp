@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PostHref from '../Post/Href';
-import Author from '../Author/Author';
+import AuthorPreview from '../Author/Preview';
 import './Preview.scss';
 import Markdown from './Markdown';
 
@@ -15,7 +15,7 @@ class Preview extends Component {
 
   static defaultProps = {
     showAuthor: true
-  }
+  };
 
   render () {
     const url = PostHref.getUrl(this.state.post);
@@ -26,7 +26,7 @@ class Preview extends Component {
         <div className="post-preview">
           <div className="left">
             <div className={authorClass}>
-              <Author isPreview="true" author={this.state.post.author} authorId={this.state.post.authorId}/>
+              <AuthorPreview author={this.state.post.author} />
             </div>
           </div>
           <div className="right">
