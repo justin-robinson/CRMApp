@@ -1,59 +1,35 @@
-import React, { Component } from 'react';
-import config from 'react-global-configuration';
+import React, {Component} from 'react';
 import './Post.scss';
 import Author from '../Author/Author';
 import Markdown from './Markdown';
-import ApiFetcher from '../Utils/ApiFetcher';
 import ScrollPositionIndicator from '../ScrollPositionIndicator/ScrollPositionIndicator';
+import {Query} from 'react-apollo';
+import postWithAuthor from '../Queries/PostWithAuthor';
 
 class Post extends Component {
 
-  state = {
-    post: {}
-  }
+  render () {
 
-  async fetchData() {
     let postId = this.props.postId || (this.props.match && this.props.match.params.postId) || null;
-    if (postId === null || this.state.post.postId === postId) {
-      return null;
-    }
-    let results = await ApiFetcher.fetch(
-      `${config.get('apiUrl')}posts/${postId}`,
-      null,
-      {
-        useCache: true,
-        sessionOnlyCache: true
-      }
-    );
-    let post = await results;
 
-    this.setState({
-      post: post
-    });
-  }
+    return <Query query={postWithAuthor} variables={{ postId }}>
+      {({loading, error, data}) => {
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error :(</p>;
 
-  async componentDidMount() {
-    await this.fetchData();
-  }
-
-  async componentDidUpdate () {
-    await this.fetchData();
-  }
-
-  render() {
-    return (
-      <div className="post">
-        <ScrollPositionIndicator />
-        <Author isPreview={true} authorId={this.state.post.authorId} />
-        <h2>{this.state.post.title}</h2>
-        <div className="content-container">
-          <div className="content">
-            <Markdown content={this.state.post.content}/>
+        return (<div className="post">
+          <ScrollPositionIndicator/>
+          <Author isPreview={true} author={data.getPost.author} authorId={data.getPost.authorId}/>
+          <h2>{data.getPost.title}</h2>
+          <div className="content-container">
+            <div className="content">
+              <Markdown content={data.getPost.content}/>
+            </div>
           </div>
-        </div>
-        <pre>Last Modified: {this.state.post.updateTime}</pre>
-      </div>
-    );
+          <pre>Last Modified: {data.getPost.updateTime}</pre>
+        </div>);
+      }}
+    </Query>
   }
 }
 
