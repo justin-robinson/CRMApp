@@ -12,7 +12,7 @@ class MySignIn extends Component {
 
   render() {
     return(
-      <Authenticator>
+      <Authenticator hideDefault={true}>
         <AutoSignOut/>
       </Authenticator>
     )
