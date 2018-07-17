@@ -5,7 +5,10 @@ import AppSync from './AppSync';
 import AWSAppSyncClient from "aws-appsync";
 import { AUTH_TYPE } from "aws-appsync/lib/link/auth-link";
 import { ApolloProvider } from 'react-apollo';
+import Amplify from 'aws-amplify';
+import awsmobile from "./aws-exports";
 
+Amplify.configure(awsmobile);
 
 class App extends Component {
 

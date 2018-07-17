@@ -1,0 +1,23 @@
+.button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-stretch: ultra-expanded;
+  font-size: 1em;
+  background: lightgrey;
+  border-color: #868686;
+
+  &:hover {
+    background: gray;
+  }
+
+  &.action {
+    background: dodgerblue;
+    color: white;
+    border-color: #134989;
+
+    &:hover {
+      background: #1a64bc;
+      cursor: pointer;
+    }
+  }
+}

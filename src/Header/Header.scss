@@ -1,29 +1,54 @@
-.header {
-    background-color: #222;
-    height: 3em;
-    padding: 0.5em;
-    color: white;
-    text-align: center;
+$headerHeight: 3em;
 
-    .logo-container {
-        height: 100%;
-        float: left;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        .logo {
-            float: left;
-            animation: App-logo-spin infinite 10s linear;
-            height: 3em;
-        }
-        .title {
-            float: left;
-            font-size: 1.5em;
-        }
+.header {
+  background-color: #222;
+  height: $headerHeight;
+  padding: 0.5em;
+  color: white;
+  text-align: center;
+
+  div {
+    height: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .logo-container {
+    float: left;
+    .logo {
+      float: left;
+      animation: App-logo-spin infinite 10s linear;
+      height: $headerHeight;
     }
+    .title {
+      float: left;
+      font-size: $headerHeight/2;
+    }
+  }
+
+  .right {
+    float: right;
+    height: $headerHeight;
+    .greeting {
+      color: white;
+      padding-right: 0.5em;
+      display: inline;
+    }
+    .sign-out {
+      display: inline;
+    }
+    .amplify-error-section {
+      display: none !important;
+    }
+  }
 }
 
 @keyframes App-logo-spin {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
