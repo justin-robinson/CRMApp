@@ -1,29 +1,5 @@
 @import "../variables";
 
-@media screen and (max-width: 600px) {
-  .link {
-    text-decoration: none;
-    color: black;
-    .post-preview {
-      display: flex;
-
-      .left {
-        position: absolute;
-        margin-bottom: 0.5em;
-        .author-preview-container {
-          display: none;
-        }
-      }
-      .right {
-        margin-top: 1em;
-        overflow: hidden;
-        .content {
-        }
-      }
-    }
-  }
-}
-
 .link {
   text-decoration: none;
   color: black;
@@ -50,6 +26,30 @@
       overflow: hidden;
       .post-title {
         margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .link {
+    text-decoration: none;
+    color: black;
+    .post-preview {
+      display: flex;
+
+      .left {
+        position: absolute;
+        margin-bottom: 0.5em;
+        .author-preview-container {
+          display: none;
+        }
+      }
+      .right {
+        margin-top: 1em;
+        overflow: hidden;
+        .content {
+        }
       }
     }
   }
