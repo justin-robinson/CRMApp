@@ -10,6 +10,7 @@ export default gql`
       authorId
       posts {
         items {
+          postId
           title
           content
         }
